@@ -1,9 +1,6 @@
 const User = require('./User');
 const BlogPost = require('./BlogPost');
-
-
-// A blogpost only has one user
-
+const Comment = require('./Comment');
 
 //A user has many blogposts
 User.hasMany(BlogPost, {
