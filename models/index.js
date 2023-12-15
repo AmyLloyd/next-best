@@ -1,34 +1,28 @@
 const User = require('./User');
 const BlogPost = require('./BlogPost');
+const Comment=require('./Comment')
 
 // A blogpost only has one user
-BlogPost.hasOne(User, { 
-    foreignKey: 'author_id',
-    onDelete: 'CASCADE',
-});
 
-
-User.belongsTo(BlogPost, {
-    foreignKey: 'author_id',
-});
 
 //A user has many blogposts
 User.hasMany(BlogPost, {
-    foreignKey: 'blogposts',
+    foreignKey: 'user_id',
     onDelete: 'CASCADE',
 });
 
 
 BlogPost.belongsTo(User, {
-    foreignKey: 'blogpost',
+    foreignKey: 'user_id',
 });
 
 //blogPost has many tags
-BlogPost.hasMany(Tag, {
-    foreignKey: 'tag_id',
+BlogPost.hasMany(Comment, {
+    foreignKey: 'post_id',
     onDelete: 'CASCADE',
 })
-
-Tag.belongsTo(BlogPost, {
-    foreignKey: 'tag_id',
+Comment.belongsTo(User, {
+    foreignKey:'user_id'
 })
+
+module.exports={ User, BlogPost, Comment}

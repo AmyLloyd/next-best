@@ -1,6 +1,9 @@
 [
     {
-       "name": "beginners"
+     "id":1,
+     "comments":"",
+    "post_id":,
+    "user_id":
     },
     {
         "name": "database"
