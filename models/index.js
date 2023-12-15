@@ -28,6 +28,12 @@ BlogPost.hasMany(Comment, {
     onDelete: 'CASCADE',
 });
 
-Comment.belongsTo(BlogPost {
+Comment.belongsTo(BlogPost, {
     foreignKey: 'comments',
+});
+
+//blogPost has many tags
+BlogPost.hasMany(Tag, {
+    foreignKey: 'tag_id',
+    onDelete: 'CASCADE',
 })
