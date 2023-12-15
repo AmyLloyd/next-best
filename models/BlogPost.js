@@ -44,6 +44,21 @@ BlogPost.init(
             key: 'id',
         },
     },
+    comment: {
+      type: DataTypes.STRING,
+      allowNull: true,
+    },
+    comment_author: {
+      type: DataTypes.INTEGER,
+      references: {
+        model: 'author',
+        key: 'id',
+      },
+    },
+    comment_created: {
+      type:DataTypes.DATE,
+      defaultValue: DataTypes.NOW,
+    },
   },
   {
     sequelize,
