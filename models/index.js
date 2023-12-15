@@ -8,6 +8,7 @@ BlogPost.hasOne(User, {
     onDelete: 'CASCADE',
 });
 
+
 User.belongsTo(BlogPost, {
     foreignKey: 'author_id',
 });
@@ -17,6 +18,7 @@ User.hasMany(BlogPost, {
     foreignKey: 'blogposts',
     onDelete: 'CASCADE',
 });
+
 
 BlogPost.belongsTo(User, {
     foreignKey: 'blogpost',
