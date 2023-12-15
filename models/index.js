@@ -2,7 +2,7 @@ const User = require('./User');
 const BlogPost = require('./BlogPost');
 const Comment = require('./Comment');
 
-// A blogpost only has one author
+// A blogpost only has one user
 BlogPost.hasOne(User, { 
     foreignKey: 'author_id',
     onDelete: 'CASCADE',
@@ -13,7 +13,7 @@ User.belongsTo(BlogPost, {
     foreignKey: 'author_id',
 });
 
-//A author has many blogposts
+//A user has many blogposts
 User.hasMany(BlogPost, {
     foreignKey: 'blogposts',
     onDelete: 'CASCADE',
