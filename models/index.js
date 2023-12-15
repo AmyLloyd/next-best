@@ -1,6 +1,6 @@
 const User = require('./User');
 const BlogPost = require('./BlogPost');
-const Comment=require('./Comment')
+
 
 // A blogpost only has one user
 
