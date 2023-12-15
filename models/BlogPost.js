@@ -22,7 +22,7 @@ BlogPost.init(
     author_id: {
       type: DataTypes.INTEGER,
       references: {
-        model: 'author',
+        model: 'user',
         key: 'id',
       },
     },
@@ -51,7 +51,7 @@ BlogPost.init(
     comment_author: {
       type: DataTypes.INTEGER,
       references: {
-        model: 'author',
+        model: 'user',
         key: 'id',
       },
     },
@@ -65,7 +65,7 @@ BlogPost.init(
     timestamps: false,
     freezeTableName: true,
     underscored: true,
-    modelName: 'library_card',
+    modelName: 'blogpost',
   }
 );
 
