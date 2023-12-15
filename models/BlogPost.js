@@ -19,7 +19,7 @@ BlogPost.init(
         type: DataTypes.STRING,
         allowNull: false,
     },
-    author_id: {
+    user_id: {
       type: DataTypes.INTEGER,
       references: {
         model: 'user',
@@ -30,35 +30,8 @@ BlogPost.init(
         type:DataTypes.DATE,
         defaultValue: DataTypes.NOW,
     },
-    comment_id: {
-        type: DataTypes.INTEGER,
-        references: {
-            model: 'comment',
-            key: 'id',
-        },
-    },
-    tag_id: {
-        type:DataTypes.INTEGER,
-        references: {
-            model: 'tag',
-            key: 'id',
-        },
-    },
-    comment: {
-      type: DataTypes.STRING,
-      allowNull: true,
-    },
-    comment_author: {
-      type: DataTypes.INTEGER,
-      references: {
-        model: 'user',
-        key: 'id',
-      },
-    },
-    comment_created: {
-      type:DataTypes.DATE,
-      defaultValue: DataTypes.NOW,
-    },
+  
+    
   },
   {
     sequelize,
