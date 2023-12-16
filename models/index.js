@@ -1,6 +1,7 @@
 const User = require('./User');
 const BlogPost = require('./BlogPost');
 const Comment = require('./Comment');
+const sequelize = require('../config/connection');
 
 //A user has many blogposts
 User.hasMany(BlogPost, {
