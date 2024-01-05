@@ -1,14 +1,15 @@
 const router = require('express').Router();
-const { User } = require('../models');
+const { User, BlogPost, Comment } = require('../models');
 
 router.get('/', async (req, res) => {
     try {
+        console.log('Home page route active');
         //Get all blogposts and JOIN with user data
         const blogPostData = await BlogPost.findAll({
             include: [
                 {
                     model: User,
-                    attributes: ['username'],
+                    attributes: ['username', 'email'],
                 },
             ],
         });
@@ -18,7 +19,7 @@ router.get('/', async (req, res) => {
         //Pass serialised data and session flag into template
         res.render('homepage', {
             blogposts,
-            logged_in: req.session.logged_in
+            // logged_in: req.session.logged_in
         });
 
     } catch (err) {
@@ -54,3 +55,5 @@ router.get('/blogs/:id', async (req, res) => {
         res.status(500).json(err);
     }
 });
+
+module.exports = router;
