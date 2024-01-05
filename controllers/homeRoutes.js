@@ -1,9 +1,9 @@
 const router = require('express').Router();
 const { User, BlogPost, Comment } = require('../models');
+const withAuth = require('../utils/auth');
 
 router.get('/', async (req, res) => {
     try {
-        console.log('Home page route active');
         //Get all blogposts and JOIN with user data
         const blogPostData = await BlogPost.findAll({
             include: [
@@ -27,7 +27,7 @@ router.get('/', async (req, res) => {
     }
 });
 
-router.get('/blogs/:id', async (req, res) => {
+router.get('/blogs/:id', withAuth, async (req, res) => {
     try {
         const blogPostData = await BlogPost.findByPk(req.params.id, {
             include: [
@@ -54,6 +54,16 @@ router.get('/blogs/:id', async (req, res) => {
     } catch (err) {
         res.status(500).json(err);
     }
+});
+
+router.get('/login', (req, res) => {
+    //If user is already logged in, redirect the request to another route
+    if (req.session.logged_in) {
+        res.redirect('/profile');
+        return;
+    }
+
+    res.render('login');
 });
 
 module.exports = router;
