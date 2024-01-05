@@ -12,8 +12,14 @@ router.get('/', async (req, res) => {
                 },
             ],
         });
+        //Serialise data so the template can read it
+        const blogposts = blogPostData.map((blogpost) => blogpost.get( {plain: true }));
 
-        res.status(200).json(blogPostData);
+        //Pass serialised data and session flag into template
+        res.render('homepage', {
+            blogposts,
+            logged_in: req.session.logged_in
+        });
 
     } catch (err) {
         res.status(500).json(err);
@@ -28,11 +34,22 @@ router.get('/blogs/:id', async (req, res) => {
                     model: User,
                     attributes: ['username'],
                 },
+                {
+                    model: Comment,
+                    attributes: [
+                        //check this reference
+                        'user_id'
+                    ]
+                }
             ],
         });
 
-        res.status(200).json(blogPostData);
+        const blogpost = blogPostData.get({ plain:true });
 
+        res.render('blogpost', {
+            ...blogpost,
+            logged_in: req.session.logged_in
+        });
     } catch (err) {
         res.status(500).json(err);
     }
