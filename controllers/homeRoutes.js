@@ -19,7 +19,7 @@ router.get('/', async (req, res) => {
         //Pass serialised data and session flag into template
         res.render('homepage', {
             blogposts,
-            logged_in: req.session.logged_in
+            loggedIn: req.session.loggedIn
         });
 
     } catch (err) {
