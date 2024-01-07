@@ -18,6 +18,7 @@ const loginFormHandler = async (event) => {
             document.location.replace('/profile');
         } else {
             alert(response.statusText);
+            alert('Failed to log in');
         }
     }
 };
@@ -29,11 +30,14 @@ const signupFormHandler = async (event) => {
     const email = document.querySelector('#email-signup').value.trim();
     const password = document.querySelector('#password-signup').value.trim();
 
-    if (name && email && password) {
+    console.log(username, email, password, "User details");
+
+    if (username && email && password) {
+        console.log(username, email, password, "username", "email", "password");
         const response = await fetch('/api/users', {
             method: 'POST',
             body: JSON.stringify({ username, email, password }),
-            headers: { 'Content-Type': 'application.json' },
+            headers: { 'Content-Type': 'application/json' },
         })
 
         if (response.ok) {

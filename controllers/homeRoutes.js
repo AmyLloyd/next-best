@@ -19,7 +19,7 @@ router.get('/', async (req, res) => {
         //Pass serialised data and session flag into template
         res.render('homepage', {
             blogposts,
-            // logged_in: req.session.logged_in
+            logged_in: req.session.logged_in
         });
 
     } catch (err) {
@@ -27,7 +27,7 @@ router.get('/', async (req, res) => {
     }
 });
 
-router.get('/blogs/:id', withAuth, async (req, res) => {
+router.get('/blogs/:id', async (req, res) => {
     try {
         const blogPostData = await BlogPost.findByPk(req.params.id, {
             include: [
@@ -56,10 +56,31 @@ router.get('/blogs/:id', withAuth, async (req, res) => {
     }
 });
 
+//Use withAuth middleware to prevent access to route
+router.get('/dashboard', withAuth, async (req, res) => {
+    try {
+        //Find the logged in user based on the session ID
+        const userData = await User.findByPk(req.session.user_id, {
+            attributes: { exclude: ['password'] },
+            include: [{ model: BlogPost }],
+        });
+
+        const user = userData.get ({ plain:true });
+
+        res.render('dashboard', {
+            ...user,
+            logged_in: true
+        });
+    } catch (err) {
+        res.status(500).json(err);
+    }
+});
+
+
 router.get('/login', (req, res) => {
     //If user is already logged in, redirect the request to another route
     if (req.session.logged_in) {
-        res.redirect('/profile');
+        res.redirect('/');
         return;
     }
 
