@@ -1,16 +1,13 @@
 const User = require('./User');
 const BlogPost = require('./BlogPost');
-const Comment=require('./Comment')
-
-// A blogpost only has one user
-
+const Comment = require('./Comment');
+const sequelize = require('../config/connection');
 
 //A user has many blogposts
 User.hasMany(BlogPost, {
     foreignKey: 'user_id',
     onDelete: 'CASCADE',
 });
-
 
 BlogPost.belongsTo(User, {
     foreignKey: 'user_id',
