@@ -9,7 +9,7 @@ router.post('/', async (req, res) => {
       email: req.body.email,
       password: req.body.password,
     });
-    
+
     if (userData.errors && userData.errors.length > 0) {
       console.log("Validation error:", userData.errors);
       res.status(400).json({ message: 'Validation error', errors: userData.errors });
@@ -22,7 +22,7 @@ router.post('/', async (req, res) => {
         .json({ message: 'Incorrect email or password, please try again' });
       return;
     }
-
+      // Set up sessions with a 'loggedIn' variable set to `true`
     req.session.save(() => {
       req.session.user_id = userData.id;
       req.session.loggedIn = true;
@@ -59,12 +59,12 @@ router.post('/login', async (req, res) => {
       return;
     }
 
-    // Create session variables based on the logged in user
+   // Once the user successfully logs in, set up the sessions variable 'loggedIn'
     req.session.save(() => {
       req.session.user_id = userData.id;
       req.session.loggedIn = true;
       
-      res.json({ user: userData, message: 'You are now logged in!' });
+      res.status(200).json({ user: userData, message: 'You are now logged in!' });
     });
 
   } catch (err) {
@@ -72,6 +72,7 @@ router.post('/login', async (req, res) => {
   }
 });
 
+//Log out
 router.post('/logout', (req, res) => {
   if (req.session.loggedIn) {
     // Remove the session variables
