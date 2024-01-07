@@ -3,8 +3,7 @@
     <a href="/dashboard">Dashboard</a>
     <!-- Conditionally render login or logout links -->
     {{#if loggedIn}}
-    <a href="/">Home</a>
-    <button id="logout" class="btn-no-style">Logout</button>
+    <a href="/login" id="logout">Logout</a>
     {{else}}
     <a href="/login">Login</a>
     {{/if}}
@@ -16,7 +15,7 @@
 <section class="card">
   <header>
     <h2>{{blogpost.title}}</h2>
-    <p>Posted by: {{user.username}} on {{blogpost.date_created}}</p>
+    <p>Posted by: {{user.username}} on {{format_date date_created}}</p>
   </header>
   <p>{{blogpost.body}}</p>
 </section>

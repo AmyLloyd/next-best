@@ -1,0 +1,52 @@
+<nav>
+    <a href="/">Home</a>
+    <a href="/dashboard">Dashboard</a>
+    <!-- Conditionally render login or logout links -->
+    {{#if loggedIn}}
+    <a href="/login" id="logout">Logout</a>
+    {{else}}
+    <a href="/login">Login</a>
+    {{/if}}
+</nav>
+
+<aside>
+    <div id="blogpost-anchor">
+
+    </div>
+</aside>
+
+<main>
+    <div class="login-card">
+
+      <h2>Create Post</h2>
+
+      <form class="form create-blogpost">
+        <div class="form-group">
+          <label for="blogpost-title">Title:</label>
+          <input class="form-input" type="text" id="blogpost-title" />
+        </div>
+        <div class="form-group">
+          <label for="blogpost-body">Write your blogpost:</label>
+          <input class="form-input" type="text" id="blogpost-body" />
+        </div>
+        <div class="form-group">
+            <label for="blogpost-user_id">This is your user_id</label>
+            <input class="form-input" type="text" id="blogpost-user_id" readonly name="{{user.id}}" value="{{user.id}}" />
+        </div>
+            {{!-- <div class="form-group">
+          <label for="blogpost-user_id">password:</label>
+          <input class="form-input" type="text" id="blogpost-user_id" />
+        </div>
+        <div class="form-group">
+          <label for="blogpost-date_created">password:</label>
+          <input class="form-input" type="text" id="blogpost-date_created" />
+        </div> --}}
+        <div class="form-group">
+          <button class="btn btn-primary" type="submit">Create Post</button>
+        </div>
+      </form>
+
+  </div>
+</main>
+
+<script src="./js/dashboard.js"></script>

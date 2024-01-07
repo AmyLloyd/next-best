@@ -60,8 +60,8 @@ nav a:hover {
 }
 
 main {
-    display: flex;
-    flex-wrap: wrap;
+    display: block;
+    width: auto;
 }
 
 h2 {
@@ -87,9 +87,9 @@ footer {
 }
 
 .card {
-    width: 100%;
+    width: 96%;
     padding: 10px;
-    margin: 20px;
+    margin: 2% 2%;
     border-style: solid;
     border-width: var(--border-width);
     background-color: var(--background2);
@@ -101,7 +101,11 @@ footer {
     margin: 40px;
     background-color: var(--background2);
     border-width: var(--border-width);
+    width: auto;
 
+}
+.form-group {
+    margin: 8px 8px;
 }
 
 /* The user's cursor is positioned over the element */
