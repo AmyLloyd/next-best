@@ -13,17 +13,25 @@
     <div class="container" style="margin: 5px"></div>
     {{#each blogposts as |blogpost|}}
       <div class="card">
-        <button class="button">{{blogpost.title}} by {{user.username}}</button>
+        <div class="header">        
+          <h2>{{blogpost.title}} by {{user.username}}</h2>
+          <div class="update-button">
+            <button class="button" data_id="{{blogpost.id}}">Edit</button>
+          </div>     
+        </div>
         <p>{{blogpost.body}}</p>
+
       </div>
     {{/each}}
     </div>
 </section>
 
-<button class="button" id="add-blogpost">Add New Blogpost</button>
+<div class="lower-buttons">
+  <button class="button" id="add-button">Add new blogpost</button>
+</div>
 
 <main>
-    <div class="login-card">
+    <div class="login-card create-card">
 
       <h2>Create Post</h2>
 
@@ -55,9 +63,9 @@
 
   </div>
 
-      <div class="login-card">
+  <div class="login-card update-card">
 
-      <h2>Edit Post</h2>
+      <h2>Edit Blogpost</h2>
 
       <form class="form edit-blogpost">
         <div class="form-group">

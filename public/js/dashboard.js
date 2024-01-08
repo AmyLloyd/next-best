@@ -1,3 +1,21 @@
+//Define sections ready for hiding/showing
+const blogpostsSec = document.getElementById('blogpost-sec');
+const createCard = document.querySelector('.create-card');
+const updateCard = document.querySelector('.update-card');
+const lowerButtons = document.querySelector('.lower-buttons');
+
+//Set starting attributes
+blogpostsSec.setAttribute("style", "display: block");
+createCard.setAttribute("style", "display: none");
+updateCard.setAttribute("style", "visibility: hidden");
+lowerButtons.setAttribute("style", "visibility: visible");
+
+//button handlers to make forms appear
+const addButton = document.querySelector('#add-button');
+const updateButton = document.querySelector('#update-button');
+
+
+//form handlers
 const createPostHandler = async (event) => {
     event.preventDefault();
     
@@ -60,14 +78,28 @@ const editButtonHandler = async (event) => {
     }
 };
 
-const addBlogpostHandler = (event) => {
+const addButtonHandler = (event) => {
     event.preventDefault();
-???
+    createCard.setAttribute("style", "display: block");
+    addButton.setAttribute("style", "display: none");
+    updateCard.setAttribute("style", "display: none"); 
+    blogpostsSec.setAttribute("style", "display: none");
+    lowerButtons.setAttribute("style", "display: none");
+}
 
+const updateButtonHandler = (event) => {
+    event.preventDefault();
+    updateCard.setAttribute("style", "display: block");
+    addButton.setAttribute("style", "display: none");
+    blogpostsSec.setAttribute("style", "display: none");
+    lowerButtons.setAttribute("style", "display: none");
+    createCard.setAttribute("style", "display: none");
 }
 
 document.querySelector('.create-blogpost').addEventListener('submit', createPostHandler);
 
 document.querySelector('.edit-blogpost').addEventListener('submit', editButtonHandler);
 
-document.querySelector('.add-blogpost').addEventListener('click', )addBlogpostHandler);
+document.querySelector('#add-button').addEventListener('click', addButtonHandler);
+
+document.querySelector('.update-button').addEventListener('click', updateButtonHandler);
