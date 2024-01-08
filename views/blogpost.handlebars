@@ -1,0 +1,12 @@
+    <div class="card">
+      <header class="header">
+        <h2 id="comment-title" blog_id="{{blogpost.id}}">{{blogpost.title}}</h2>
+        <div class="data-group">    
+          <p>Posted by: {{user.username}} on {{format_date date_created}}</p>
+          <div data_id="{{blogpost.id}}">
+                <button class="button" id="comment-button">Comment</button>
+          </div>
+        </div>
+      </header>
+      <p>{{blogpost.body}}</p>
+    </div>

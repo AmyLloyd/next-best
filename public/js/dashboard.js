@@ -1,5 +1,5 @@
 //Define sections ready for hiding/showing
-const blogpostsSec = document.getElementById('blogpost-sec');
+const blogpostsSec = document.getElementById('blogposts-sec');
 const createCard = document.querySelector('.create-card');
 const updateCard = document.querySelector('.update-card');
 const lowerButtons = document.querySelector('.lower-buttons');
@@ -13,6 +13,7 @@ lowerButtons.setAttribute("style", "visibility: visible");
 //button handlers to make forms appear
 const addButton = document.querySelector('#add-button');
 const updateButton = document.querySelector('#update-button');
+
 
 
 //form handlers
@@ -41,18 +42,6 @@ const createPostHandler = async (event) => {
         }
     }
 };
-
-const renderItem = (blog) => {
-    const blogAnchor = document.querySelector('#blogpost-anchor');
-    let blogCard = document.createElement('div');
-    let link = document.createElement('a');
-    blogCard.setAttribute('class', 'card');
-    blogCard.setAttribute('style', 'background-color: var(--background)');
-    //Check this
-    link.setAttribute('href', `/blogs/${blog.id}`);
-    blogCard.append(link);
-    blogAnchor.append(blogCard);
-}
 
 const editButtonHandler = async (event) => {
     event.preventDefault();
