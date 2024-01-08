@@ -9,14 +9,29 @@
     {{/if}}
 </nav>
 
-<aside>
-    <div id="blogpost-anchor">
+<section id="blogpost-sec">
+    <div class="container" style="margin: 5px"></div>
+    {{#each blogposts as |blogpost|}}
+      <div class="card">
+        <div class="header">        
+          <h2>{{blogpost.title}} by {{user.username}}</h2>
+          <div class="update-button">
+            <button class="button" data_id="{{blogpost.id}}">Edit</button>
+          </div>     
+        </div>
+        <p>{{blogpost.body}}</p>
 
+      </div>
+    {{/each}}
     </div>
-</aside>
+</section>
+
+<div class="lower-buttons">
+  <button class="button" id="add-button">Add new blogpost</button>
+</div>
 
 <main>
-    <div class="login-card">
+    <div class="login-card create-card">
 
       <h2>Create Post</h2>
 
@@ -43,6 +58,38 @@
         </div> --}}
         <div class="form-group">
           <button class="btn btn-primary" type="submit">Create Post</button>
+        </div>
+      </form>
+
+  </div>
+
+  <div class="login-card update-card">
+
+      <h2>Edit Blogpost</h2>
+
+      <form class="form edit-blogpost">
+        <div class="form-group">
+          <label for="edit-title">Title:</label>
+          <input class="form-input" type="text" id="edit-title" />
+        </div>
+        <div class="form-group">
+          <label for="edit-body">Write your blogpost:</label>
+          <input class="form-input" type="text" id="edit-body" />
+        </div>
+        <div class="form-group">
+            <label for="edit-user_id">This is your user_id</label>
+            <input class="form-input" type="text" id="edit-user_id" readonly name="{{user.id}}" value="{{user.id}}" />
+        </div>
+            {{!-- <div class="form-group">
+          <label for="blogpost-user_id">password:</label>
+          <input class="form-input" type="text" id="blogpost-user_id" />
+        </div>
+        <div class="form-group">
+          <label for="blogpost-date_created">password:</label>
+          <input class="form-input" type="text" id="blogpost-date_created" />
+        </div> --}}
+        <div class="form-group">
+          <button class="btn btn-primary" type="submit" data-id="{{blog.id}}">Save Changes</button>
         </div>
       </form>
 

@@ -9,7 +9,7 @@
     --text: black;
     --border-width: 1px;
     /* You can use it with any value that is repeated throughout the sheet */
-    --border-radius: 50px;
+    --border-radius: 5%;
   }
 
 * {
@@ -24,12 +24,12 @@ body {
     background-color: var(--background);
 }
 
-header {
+.header {
     padding: 8px;
     text-align: center;
     background-color: var(--background);
     color: var(--text);
-    display: flex;
+    display: flex !important;
     flex-wrap: wrap;
     flex-direction: row;
     justify-content:space-between;
@@ -108,9 +108,24 @@ footer {
     margin: 8px 8px;
 }
 
+.lower-buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content:center;
+    margin: 10px 30px;
+}
+
+.button {
+    margin: 5px;
+    border: none;
+    background-color: var(--feature1);
+    border-radius: var(--border-radius);
+    padding: 2%;
+
+}
 /* The user's cursor is positioned over the element */
 button:hover {
-    background-color: #772014;
+    background-color: var(--highlight);
     color: #fff;
   }
   
