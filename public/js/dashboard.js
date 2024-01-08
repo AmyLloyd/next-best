@@ -60,6 +60,14 @@ const editButtonHandler = async (event) => {
     }
 };
 
+const addBlogpostHandler = (event) => {
+    event.preventDefault();
+???
+
+}
+
 document.querySelector('.create-blogpost').addEventListener('submit', createPostHandler);
 
 document.querySelector('.edit-blogpost').addEventListener('submit', editButtonHandler);
+
+document.querySelector('.add-blogpost').addEventListener('click', )addBlogpostHandler);

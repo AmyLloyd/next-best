@@ -9,11 +9,18 @@
     {{/if}}
 </nav>
 
-<aside>
-    <div id="blogpost-anchor">
-
+<section id="blogpost-sec">
+    <div class="container" style="margin: 5px"></div>
+    {{#each blogposts as |blogpost|}}
+      <div class="card">
+        <button class="button">{{blogpost.title}} by {{user.username}}</button>
+        <p>{{blogpost.body}}</p>
+      </div>
+    {{/each}}
     </div>
-</aside>
+</section>
+
+<button class="button" id="add-blogpost">Add New Blogpost</button>
 
 <main>
     <div class="login-card">
