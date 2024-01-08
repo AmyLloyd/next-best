@@ -1,23 +1,25 @@
 const createPostHandler = async (event) => {
     event.preventDefault();
-
+    
     const title = document.querySelector('#blogpost-title').value.trim();
-    const body = document.querySelector('#blogpost-body').value.trim();
+    const content = document.querySelector('#blogpost-body').value.trim();
+    console.log(title, "title", content, "content");
 
-    if(title && body) {
+    if(title && content) {
         const response = await fetch('/api/blogs', {
             method: 'POST',
-            body: JSON.stringify({ title, body }),
-            headers: { 'Content-Type': 'application/json'
+            body: JSON.stringify({ title, content }),
+            headers: { 
+                'Content-Type': 'application/json'
             },
         });
+
+        console.log(response, "response");
     
         if(!response.ok) {
             alert('Failed to create blogpost');      
         } else {
-            document.location.replace('/dashboard');
-            
-            renderItem(response);
+            document.location.replace('/');
         }
     }
 };
@@ -33,4 +35,4 @@ const renderItem = (blog) => {
     blogCard.append(link);
     blogAnchor.append(blogCard);
 }
-document.querySelector('.create-post').addEventListener('submit', createPostHandler);
+document.querySelector('.create-blogpost').addEventListener('submit', createPostHandler);

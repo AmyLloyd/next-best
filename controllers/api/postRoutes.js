@@ -1,27 +1,20 @@
 const router = require('express').Router();
 const { User, BlogPost, Comment } = require('../../models');
+const withAuth = require('../../utils/auth');
 
 //Create new blog
 
-router.post('/', async (req, res) => {
+router.post('/', withAuth, async (req, res) => {
     try {
         const blogData = await BlogPost.create({
-            title: req.body.title,
-            body: req.body.body,
+          title: req.body.title,
+          body: req.body.content,
+          user_id: req.session.user_id,
         });
-    
-        if (!blogData) {
-            console.log("Incorrect title or post")
-            res
-            .status(400)
-            .json({ message: 'Incorrect email or password, please try again' });
-            return;
-        }
    
-    res.status(200).json(blogData);
+        res.status(200).json(blogData);
     } catch (err) {
     res.status(400).json(err);
-    console.log(err, "err");
     }
 });
 

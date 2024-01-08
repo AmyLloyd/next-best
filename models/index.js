@@ -1,7 +1,6 @@
 const User = require('./User');
 const BlogPost = require('./BlogPost');
 const Comment = require('./Comment');
-const sequelize = require('../config/connection');
 
 //A user has many blogposts
 User.hasMany(BlogPost, {
@@ -22,4 +21,4 @@ Comment.belongsTo(User, {
     foreignKey:'user_id'
 })
 
-module.exports={ User, BlogPost, Comment}
+module.exports = { User, BlogPost, Comment}
