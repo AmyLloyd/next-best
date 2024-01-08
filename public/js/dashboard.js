@@ -35,4 +35,31 @@ const renderItem = (blog) => {
     blogCard.append(link);
     blogAnchor.append(blogCard);
 }
+
+const editButtonHandler = async (event) => {
+    event.preventDefault();
+    if (event.target.hasAttribute('data-id')) {
+        const id = event.target.getAttribute('data-id');
+
+        const title = document.querySelector('#edit-title').value.trim();
+        const content = document.querySelector('#edit-body').value.trim();
+
+        const response = await fetch(`/api/blogposts/${id}`, {
+            method: 'UPDATE',
+            body: JSON.stringify({ title, content }),
+            headers: {
+                'Content-Type': 'application/json',
+            },
+        });
+
+        if(response.ok) {
+            document.location.replace('/dashboard');
+        } else {
+            alert('Failed to update blogpost');
+        }
+    }
+};
+
 document.querySelector('.create-blogpost').addEventListener('submit', createPostHandler);
+
+document.querySelector('.edit-blogpost').addEventListener('submit', editButtonHandler);

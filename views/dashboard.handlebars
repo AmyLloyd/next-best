@@ -47,6 +47,38 @@
       </form>
 
   </div>
+
+      <div class="login-card">
+
+      <h2>Edit Post</h2>
+
+      <form class="form edit-blogpost">
+        <div class="form-group">
+          <label for="edit-title">Title:</label>
+          <input class="form-input" type="text" id="edit-title" />
+        </div>
+        <div class="form-group">
+          <label for="edit-body">Write your blogpost:</label>
+          <input class="form-input" type="text" id="edit-body" />
+        </div>
+        <div class="form-group">
+            <label for="edit-user_id">This is your user_id</label>
+            <input class="form-input" type="text" id="edit-user_id" readonly name="{{user.id}}" value="{{user.id}}" />
+        </div>
+            {{!-- <div class="form-group">
+          <label for="blogpost-user_id">password:</label>
+          <input class="form-input" type="text" id="blogpost-user_id" />
+        </div>
+        <div class="form-group">
+          <label for="blogpost-date_created">password:</label>
+          <input class="form-input" type="text" id="blogpost-date_created" />
+        </div> --}}
+        <div class="form-group">
+          <button class="btn btn-primary" type="submit" data-id="{{blog.id}}">Save Changes</button>
+        </div>
+      </form>
+
+  </div>
 </main>
 
 <script src="./js/dashboard.js"></script>
