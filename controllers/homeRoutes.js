@@ -9,8 +9,8 @@ router.get('/', async (req, res) => {
             include: [
                 {
                     model: User,
-                    attributes: ['username', 'email'],
-                },
+                    attributes: ['username', 'email']
+                }
             ],
         });
         //Serialise data so the template can read it

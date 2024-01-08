@@ -60,7 +60,6 @@ nav a:hover {
 }
 
 main {
-    display: block;
     width: auto;
 }
 
@@ -115,12 +114,18 @@ footer {
     margin: 10px 30px;
 }
 
+.data-group {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
 .button {
-    margin: 5px;
+    margin: 10px;
     border: none;
     background-color: var(--feature1);
     border-radius: var(--border-radius);
-    padding: 2%;
+    padding: 10%;
 
 }
 /* The user's cursor is positioned over the element */
@@ -131,8 +136,7 @@ button:hover {
   
   /* The user is actively pressing down on the element */
   button:active {
-    font-size: 180%;
-    box-shadow: 0 0 10px #000 inset;
+    font-size: 90%;
   }
   
   /* The element is currently in focus, either by tabbing to or clicking on it */

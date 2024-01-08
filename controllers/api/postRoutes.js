@@ -39,4 +39,20 @@ router.put('/:id', withAuth, async (req, res) => {
     }
 });
 
+//Post comment
+router.post('/comment/:id', withAuth, async (req, res) => {
+  try {
+        const commentData = await Comment.create({
+          comments: req.body.comment,
+          user_id: req.session.user_id,
+          where: {
+            post_id: req.params.id,
+          },
+        })
+      res.status(200).json(commentData);
+  } catch (err) {
+  res.status(400).json(err);
+  }
+});
+
 module.exports = router;

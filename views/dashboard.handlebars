@@ -9,21 +9,21 @@
     {{/if}}
 </nav>
 
-<section id="blogpost-sec">
-    <div class="container" style="margin: 5px"></div>
+<section id="blogposts-sec">
     {{#each blogposts as |blogpost|}}
+    <div class="container" style="margin: 5px"></div>
+
       <div class="card">
-        <div class="header">        
+        <header class="header">        
           <h2>{{blogpost.title}} by {{user.username}}</h2>
           <div class="update-button">
             <button class="button" data_id="{{blogpost.id}}">Edit</button>
           </div>     
-        </div>
+        </header>
         <p>{{blogpost.body}}</p>
-
       </div>
-    {{/each}}
     </div>
+    {{/each}}
 </section>
 
 <div class="lower-buttons">
