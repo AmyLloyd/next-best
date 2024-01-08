@@ -1,11 +1,22 @@
+<nav>
+    <a href="/">Home</a>
+    <a href="/dashboard">Dashboard</a>
+    <!-- Conditionally render login or logout links -->
+    {{#if loggedIn}}
+    <a href="/login" id="logout">Logout</a>
+    {{else}}
+    <a href="/login">Login</a>
+    {{/if}}
+</nav>
+
 {{#each blogposts as |blogpost|}}
 <!-- Blogpost cards -->
+
 <section class="card">
   <header>
-    <h2>{{user.username}}</h2>
+    <h2>{{blogpost.title}}</h2>
+    <p>Posted by: {{user.username}} on {{format_date date_created}}</p>
   </header>
-  <p>      
-    <h3><a href="mailto:{{user.email}}">{{user.email}}</a></h3>
-  </p>
+  <p>{{blogpost.body}}</p>
 </section>
 {{/each}}

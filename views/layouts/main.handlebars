@@ -12,27 +12,10 @@
     <header>
         <h1>NEXT BEST TECH BLOG</h1>
     </header>
-    <nav>
-        <a href="/">Home</a>
-        <a href="/dashboard">Dashboard</a>
-        <!-- Conditionally render login or logout links -->
-        {{#if loggedIn}}
-        <a href="/">Home</a>
-        <button id="logout" class="btn-no-style">Logout</button>
-        {{else}}
-        <a href="/login">Login</a>
-        {{/if}}
-    </nav>
+
 
     <main>
-        <!-- Sidebar -->
-        <aside>
-            <h2>What's the NEXT BEST THING in Tech?</h2>
-            <p>Read on to find out people's opinions. Post your own ideas!</p>
-        </aside>
-        <div class="blogposts">
-        {{{body}}}
-        </div>
+      {{{body}}}
     </main>
 {{#if loggedIn}}
 <script src="js/logout.js"></script>
