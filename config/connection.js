@@ -17,6 +17,7 @@ if (process.env.JAWSDB_URL) {
     }
   );
 }
+
 const confirmSequelize = async () => {
   try {
     await sequelize.authenticate();
