@@ -40,18 +40,18 @@ router.put('/:id', withAuth, async (req, res) => {
 });
 
 //Post comment
-router.post('/comment/:id', withAuth, async (req, res) => {
+router.post('/comment', async (req, res) => {
+  console.log(req.session.user_id);
   try {
         const commentData = await Comment.create({
-          comments: req.body.comment,
+          comment: req.body.comment,
+          post_id: req.body.post_id,
           user_id: req.session.user_id,
-          where: {
-            post_id: req.params.id,
-          },
         })
       res.status(200).json(commentData);
   } catch (err) {
-  res.status(400).json(err);
+    console.log(err, "err");
+    res.status(400).json(err);
   }
 });
 

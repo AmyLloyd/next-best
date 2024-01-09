@@ -9,33 +9,36 @@ commentFormEl.setAttribute("style", "display: none");
 blogpostsSec.setAttribute("style", "display: block");
 
 const commentButtonHandler = (blogpostId) => {
-
-    console.log("Hello");
     commentFormEl.setAttribute("style", "display: block");
     blogpostsSec.setAttribute("style", "display: none");
+
+    document.querySelector('.comment-form').addEventListener('submit', function(event) { 
+        event.preventDefault(); 
+        createCommentHandler(blogpostId)
+    });
 }
 
-const createCommentHandler = async (event) => {
-    event.preventDefault();
+const createCommentHandler = async (blogpostId) => {
+    const post_id = blogpostId;
+    const comment = await document.getElementById('comment').value.trim();
 
-    const id = event.target.data_id;
-    const comment = document.getElementById('comment').value.trim();
+    console.log(post_id, "post_id");
+    console.log(comment);
 
-    //object 
-    // const commentData = 
 
-    if(comment) {
-        const response = await fetch(`/api/blogs/comment/${id}`, {
+    if(comment && post_id) {
+        const response = await fetch(`/api/blogs/comment`, {
             method: 'POST',
-            body: JSON.stringify({ comment }),
+            body: JSON.stringify({ comment, post_id }),
             headers: {
                 'Content-Type': 'application/json',
             },
         });
-
+        console.log("createCommentHandler proceeding");
         if(!response.ok) {
-            alert('Failed to create blogpost');      
+            return alert('Failed to create blogpost');      
         } else {
+            alert('Post created');
             document.location.replace('/');
         }
     }
@@ -53,15 +56,7 @@ document.getElementById('blogContainer').addEventListener('click', function(even
     }
 });
 
-function handleButtonClick(blogpostId) {
-    // Your logic here
-    console.log('Button clicked for blogpost with ID:', blogpostId);
-}
-
 //for loop to attach event listener to all the buttons
 
-document.querySelector('#comment-button2').addEventListener('click', commentButtonHandler);
-
-document.querySelector('.comment-form').addEventListener('click', createCommentHandler);
-
+document.querySelector('#comment-button').addEventListener('click', commentButtonHandler);
 
