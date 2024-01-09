@@ -12,7 +12,7 @@ I have learnt the ability to set up the associations in the models and render th
 - [Credits](#credits)
 
 ## Usage
-To use the Next Best Blogsite, go to this link: 
+To use the Next Best Blogsite, go to this link: https://stark-spire-89547-14040d39d29b.herokuapp.com/
 
 You will also find the git hub repo at this address: https://github.com/AmyLloyd/next-best 
 
