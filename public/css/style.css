@@ -66,9 +66,11 @@ main {
 h2 {
     padding: 5px 0px;
     margin: 5px 0px;
+    font-size: 1em;
+    font-weight:bolder;
 }
 
-footer {
+.footer {
     width: 100%;
     bottom: 0;
     padding: 20px;
@@ -76,6 +78,8 @@ footer {
     background: var(--background2);
     color: var(--text);
     margin-top: auto;
+    justify-content:left;
+    font-weight: lighter;
 }
 
 .blogposts {
@@ -125,7 +129,7 @@ footer {
     border: none;
     background-color: var(--feature1);
     border-radius: var(--border-radius);
-    padding: 10%;
+    padding: 10px;
 
 }
 /* The user's cursor is positioned over the element */

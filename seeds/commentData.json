@@ -1,32 +1,32 @@
 [
     {
         "id":1,
-        "comments":"That's helped me heaps.",
+        "comment":"That's helped me heaps.",
         "post_id": 1,
         "user_id": 2
     },
     {
         "id": 2,
-        "comments": "What were your sources for the information?",
+        "comment": "What were your sources for the information?",
         "post_id": 1,
         "user_id": 2
 
     },  
     {
         "id": 3,
-        "comments": "Do you think middleware will disappear?",
+        "comment": "Do you think middleware will disappear?",
         "post_id":2,
         "user_id": 1
     },
     {
-        "id": 4,                                                                                                                                                                                                                                        
-        "comments": "I think you need to discuss the benefits of native cloud applications in your article.",
+        "id":4,                                                     
+        "comment": "I think you need to discuss the benefits of native cloud applications in your article.",
         "post_id": 1,                                
         "user_id": 3              
     },
     {
         "id": 5,
-        "comments": "Bootcamp students are being found to be valuable in meeting the shortage for developers in the industry.",
+        "comment": "Bootcamp students are being found to be valuable in meeting the shortage for developers in the industry.",
         "post_id": 3,
         "user_id": 1                                           
     }
