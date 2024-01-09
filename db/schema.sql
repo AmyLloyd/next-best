@@ -1,2 +1,2 @@
-DROP DATABASE IF EXISTS connector_db;
-CREATE DATABASE connector_db;
+DROP DATABASE IF EXISTS next_best_db;
+CREATE DATABASE next_best_db;
