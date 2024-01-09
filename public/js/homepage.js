@@ -56,7 +56,4 @@ document.getElementById('blogContainer').addEventListener('click', function(even
     }
 });
 
-//for loop to attach event listener to all the buttons
-
-document.querySelector('#comment-button').addEventListener('click', commentButtonHandler);
 
