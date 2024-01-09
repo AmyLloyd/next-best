@@ -14,7 +14,7 @@
 
 <section id="blogposts-sec">
   <div class="container" style="margin: 5px"></div>
-    {{#each blogposts as |blogpost|}} 
+    {{!-- {{#each blogposts as |blogpost|}} 
     <div class="card">
       <header class="header">
         <a href=`/blogs/{{blogpost.id}}`>
@@ -23,14 +23,43 @@
         <div class="data-group">    
           <p>Posted by: {{user.username}} on {{format_date date_created}}</p>
           <div data_id="{{blogpost.id}}">
-                <button class="button" id="comment-button">Comment</button>
+                <button class="button" id="comment-button{{blogpost.id}}">Comment</button>
           </div>
         </div>
       </header>
       <p>{{blogpost.body}}</p>
     </div>
     {{/each}}
-  </div>
+  </div> --}}
+  <div id="blogContainer">
+  {{#each blogposts as |blogpost|}}
+    <div class="card">
+      <header class="header">
+        <a href=`/blogs/{{blogpost.id}}`>
+          <h2>{{blogpost.title}}</h2>
+        </a>
+        <div class="data-group">
+          <p>Posted by: {{user.username}} on {{format_date date_created}}</p>
+          <div data_id="{{blogpost.id}}">
+                <button class="button" id="comment-button{{blogpost.id}}">Comment</button>
+          </div>
+        </div>
+      </header>
+      <p>{{blogpost.body}}</p>
+
+      <footer>
+        <h2>Comments</h2>
+        <ul>
+      {{#each comments as |comment|}}
+        <li>Next Best user #{{comment.user_id}} says "{{comment.comment}}".</li>
+      {{/each}}
+      </ul>
+      </footer>
+
+    </div>
+
+  {{/each}}
+</div>
 </section>
 
 
